@@ -174,7 +174,7 @@ const Game = () => {
           />
           <section className="score-container">
             <article className="score-board">
-              <p className="score-title">Score</p>
+              <h1 className="score-title">Score</h1>
               <p className="score" aria-live="polite">
                 {score.user}
               </p>
@@ -182,7 +182,6 @@ const Game = () => {
             <button
               className="reset-score-btn"
               onClick={resetScore}
-              role="button"
               aria-label="Reset Score"
             >
               Reset Score
