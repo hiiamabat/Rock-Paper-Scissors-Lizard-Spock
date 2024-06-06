@@ -1,0 +1,191 @@
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  place-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+  transition: opacity 0.5s ease;
+}
+
+.choices::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../assets/images/bg-pentagon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 329px;
+  height: 313px;
+  z-index: -1;
+  width: 80%;
+}
+
+.choice-container {
+  position: relative;
+}
+
+.choice-container::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: inset 0 -9px 0px -3px rgba(0, 0, 0, 0.2);
+}
+
+.choice-container.rock::before {
+  background-image: var(--rock-gradient);
+}
+
+.choice-container.paper::before {
+  background-image: var(--paper-gradient);
+}
+
+.choice-container.scissors::before {
+  background-image: var(--scissors-gradient);
+}
+.choice-container.lizard::before {
+  background-image: var(--lizard-gradient);
+}
+
+.choice-container.spock::before {
+  background-image: var(--spock-gradient);
+}
+
+.choice {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.choice-container:hover {
+  transform: scale(1.05);
+}
+
+.choice-container.scissors {
+  top: -120px;
+  left: 90px;
+}
+
+.choice-container.paper {
+  top: -40px;
+  left: 100px;
+}
+
+.choice-container.rock {
+  top: 70px;
+  left: -20px;
+}
+
+.choice-container.lizard {
+  top: -15px;
+  left: 30px;
+}
+
+.choice-container.spock {
+  top: -130px;
+  left: -100px;
+}
+
+.choice img {
+  width: 40%;
+}
+
+/* TO EQUALIZE SIZE OF IMAGES */
+
+.choice-container.lizard .choice img,
+.choice-container.scissors .choice img {
+  width: 50%;
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 500px) {
+  .choices::before {
+    width: 329px;
+  }
+
+  .choice {
+    width: 110px;
+    height: 110px;
+  }
+
+  .choice-container.scissors {
+    top: -90px;
+    left: 100px;
+  }
+
+  .choice-container.paper {
+    top: 35px;
+    left: 110px;
+  }
+
+  .choice-container.rock {
+    top: 210px;
+    left: -60px;
+  }
+
+  .choice-container.lizard {
+    top: 85px;
+    left: 0;
+  }
+
+  .choice-container.spock {
+    top: -90px;
+    left: -180px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .choices {
+    width: auto;
+  }
+
+  .choice-container::before {
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+  }
+
+  .choice-container.scissors {
+    top: -90px;
+    left: 100px;
+  }
+
+  .choice-container.paper {
+    top: 35px;
+    left: 110px;
+  }
+
+  .choice-container.rock {
+    top: 210px;
+    left: -60px;
+  }
+
+  .choice-container.lizard {
+    top: 85px;
+    left: 0;
+  }
+
+  .choice-container.spock {
+    top: -90px;
+    left: -180px;
+  }
+}

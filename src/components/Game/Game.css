@@ -1,0 +1,167 @@
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 4em 1em 5em 1em;
+  padding: 1em 1.5em 0.5em 1em;
+  border: 3px solid var(--header-outline);
+  border-radius: 15px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-board {
+  background: white;
+  color: var(--score-text);
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.score-title {
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-size: 0.8rem;
+  color: var(--score-text);
+  font-weight: 700;
+}
+
+.score {
+  color: var(--dark-text);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 0.9;
+}
+
+.reset-score-btn {
+  margin-top: 0.5em;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  background-color: transparent;
+}
+
+.reset-score-btn:hover,
+.reset-score-btn:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.game-section {
+  width: 100%;
+  display: flex;
+}
+
+.rules-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rules-btn > button {
+  background: transparent;
+  color: white;
+  padding: 0.6rem 2.5rem;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.3s;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.rules-btn > button:hover,
+.rules-btn > button:focus {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.error-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.error-message {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+  .header {
+    max-width: 700px;
+  }
+
+  .logo {
+    width: 110px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .game-section {
+    width: 100%;
+  }
+
+  .header {
+    max-width: 1000px;
+  }
+
+  .logo {
+    width: 130px;
+  }
+
+  .rules-btn {
+    align-self: flex-end;
+  }
+
+  .rules-btn > button {
+    margin-right: 2em;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+  }
+}
