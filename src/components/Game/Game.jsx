@@ -203,6 +203,7 @@ const Game = () => {
                 result={gameState.result}
                 onPlayAgain={handlePlayAgain}
                 updateScore={updateScore}
+                choices={choices}
               />
             )}
           </section>

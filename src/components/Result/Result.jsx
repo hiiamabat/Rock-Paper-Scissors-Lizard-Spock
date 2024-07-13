@@ -1,43 +1,82 @@
 import React, { useState, useEffect } from "react";
 import "./Result.css";
 
-const Result = ({ userChoice, computerChoice, result, onPlayAgain }) => {
+const Result = ({
+  userChoice,
+  computerChoice,
+  result,
+  onPlayAgain,
+  choices,
+}) => {
   const [revealState, setRevealState] = useState({
     choicesRevealed: false,
     outcomeRevealed: false,
     rippleActive: false,
+    cyclingChoice: null,
+    isCycling: true,
   });
 
   useEffect(() => {
-    const choicesTimer = setTimeout(() => {
-      setRevealState((prevState) => ({
-        ...prevState,
-        choicesRevealed: true,
-      }));
-    }, 1000);
+    const totalDuration = 1000;
+    const initialSpeed = 50;
+    const finalSpeed = 300;
+    const steps = 9; // Number of steps to slow down
+
+    let cycleCount = 0;
+    let currentSpeed = initialSpeed;
+    let interval;
+
+    const cycleChoices = () => {
+      interval = setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        setRevealState((prevState) => ({
+          ...prevState,
+          cyclingChoice: choices[randomIndex],
+        }));
+        cycleCount++;
+        // Gradually increase the interval duration to slow down the cycling
+        currentSpeed =
+          initialSpeed + (finalSpeed - initialSpeed) * (cycleCount / steps);
+
+        if (cycleCount >= steps) {
+          clearTimeout(interval);
+          setRevealState((prevState) => ({
+            ...prevState,
+            cyclingChoice: null,
+            isCycling: false,
+            choicesRevealed: true,
+          }));
+        } else {
+          cycleChoices();
+        }
+      }, currentSpeed);
+    };
+
+    cycleChoices();
 
     const outcomeTimer = setTimeout(() => {
       setRevealState((prevState) => ({
         ...prevState,
         outcomeRevealed: true,
       }));
-    }, 2000);
+    }, totalDuration + 1000);
 
     const rippleTimer = setTimeout(() => {
       setRevealState((prevState) => ({
         ...prevState,
         rippleActive: true,
       }));
-    }, 2500);
+    }, totalDuration + 1500);
 
     return () => {
-      clearTimeout(choicesTimer);
+      clearTimeout(interval);
       clearTimeout(outcomeTimer);
       clearTimeout(rippleTimer);
     };
-  }, [userChoice, computerChoice, result]);
+  }, [userChoice, computerChoice, result, choices]);
 
-  const { choicesRevealed, outcomeRevealed, rippleActive } = revealState;
+  const { choicesRevealed, outcomeRevealed, cyclingChoice, isCycling } =
+    revealState;
   const { name: userName, icon: userIcon } = userChoice;
   const { name: computerName, icon: computerIcon } = computerChoice;
 
@@ -75,12 +114,19 @@ const Result = ({ userChoice, computerChoice, result, onPlayAgain }) => {
         )}
         <div className={`computer-result ${choicesRevealed ? "show" : ""}`}>
           <div
-            className={`result-container ${computerName} ${
-              isLoser && choicesRevealed ? "reveal-ripple" : ""
-            }`}
+            className={`result-container ${
+              isCycling ? cyclingChoice?.name : computerName
+            } ${isLoser && choicesRevealed ? "reveal-ripple" : ""}`}
           >
-            <div className={`choice-result ${computerName}`}>
-              <img src={computerIcon} alt={computerName} />
+            <div
+              className={`choice-result ${
+                isCycling ? cyclingChoice?.name : computerName
+              }`}
+            >
+              <img
+                src={isCycling ? cyclingChoice?.icon : computerIcon}
+                alt={isCycling ? cyclingChoice?.name : computerName}
+              />
             </div>
           </div>
           <h3>The House Picked</h3>

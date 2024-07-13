@@ -5,12 +5,10 @@
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
-  transition: opacity 0.5s ease-in-out;
 }
 
 .choices-container {
   display: flex;
-  transition: transform 0.5s ease;
   width: 100%;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -22,20 +20,20 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: transform 0.5s ease;
 }
 
 .choices-container.reveal-outcome .user-result {
   transform: translateX(-40%);
+  transition: transform 0.5s ease;
 }
 
 .choices-container.reveal-outcome .computer-result {
   transform: translateX(40%);
+  transition: transform 0.5s ease;
 }
 
 .result-container {
   position: relative;
-  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .result-container::before {
@@ -82,17 +80,14 @@
   z-index: 1;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s ease-in-out;
 }
 
 .choice-result > img {
   width: 40%;
 }
 
-/* TO EQUALIZE SIZE OF IMAGES */
-
 .choice-result.lizard img,
-.choice-result.scissors .choice img {
+.choice-result.scissors img {
   width: 50%;
 }
 
@@ -108,7 +103,6 @@
 }
 
 .computer-result .result-container {
-  opacity: 0;
   transition: opacity 0.5s ease;
 }
 
@@ -173,7 +167,6 @@
   justify-content: center;
   padding: 1em 2em;
   margin: 0 auto;
-  transition: transform 0.2s;
   text-transform: uppercase;
   font-weight: 500;
   font-family: "Barlow Semi Condensed", sans-serif;
@@ -187,7 +180,6 @@
   transform: scale(1.05);
   color: rgb(181, 34, 34);
   font-weight: 700;
-  transition: opacity 0.5s ease;
 }
 
 .result-container.reveal-ripple {
@@ -196,17 +188,27 @@
   z-index: -1;
 }
 
+/* ANIMATIONS */
+
+/* Keyframes for the ripple on the winner */
+
 @keyframes ripple {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-      0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 0 rgba(255, 255, 255, 0.3);
+    box-shadow:
+      0 0 0 0 rgba(255, 255, 255, 0.3),
+      0 0 0 0 rgba(255, 255, 255, 0.3),
+      0 0 0 0 rgba(255, 255, 255, 0.3);
   }
   80% {
-    box-shadow: 0 0 0 50px rgba(255, 255, 255, 0),
-      0 0 0 70px rgba(255, 255, 255, 0), 0 0 0 90px rgba(255, 255, 255, 0);
+    box-shadow:
+      0 0 0 50px rgba(255, 255, 255, 0),
+      0 0 0 70px rgba(255, 255, 255, 0),
+      0 0 0 90px rgba(255, 255, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0),
+    box-shadow:
+      0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
@@ -258,10 +260,10 @@
   }
 
   .result-container::before {
-    top: -30px;
-    left: -30px;
-    right: -30px;
-    bottom: -30px;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
   }
 
   .computer-result::before {
@@ -276,30 +278,42 @@
 
   @keyframes ripple {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-        0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 0 rgba(255, 255, 255, 0.3);
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3);
     }
     80% {
-      box-shadow: 0 0 0 70px rgba(255, 255, 255, 0),
-        0 0 0 130px rgba(255, 255, 255, 0), 0 0 0 170px rgba(255, 255, 255, 0);
+      box-shadow:
+        0 0 0 70px rgba(255, 255, 255, 0),
+        0 0 0 130px rgba(255, 255, 255, 0),
+        0 0 0 170px rgba(255, 255, 255, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0),
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0),
+        0 0 0 0 rgba(255, 255, 255, 0),
         0 0 0 0 rgba(255, 255, 255, 0);
     }
   }
 
   @keyframes ripple {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-        0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 0 rgba(255, 255, 255, 0.3);
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3);
     }
     80% {
-      box-shadow: 0 0 0 70px rgba(255, 255, 255, 0),
-        0 0 0 120px rgba(255, 255, 255, 0), 0 0 0 160px rgba(255, 255, 255, 0);
+      box-shadow:
+        0 0 0 70px rgba(255, 255, 255, 0),
+        0 0 0 120px rgba(255, 255, 255, 0),
+        0 0 0 160px rgba(255, 255, 255, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0),
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0),
+        0 0 0 0 rgba(255, 255, 255, 0),
         0 0 0 0 rgba(255, 255, 255, 0);
     }
   }
@@ -360,15 +374,21 @@
 
   @keyframes ripple {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3),
-        0 0 0 0 rgba(255, 255, 255, 0.3), 0 0 0 0 rgba(255, 255, 255, 0.3);
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3),
+        0 0 0 0 rgba(255, 255, 255, 0.3);
     }
     80% {
-      box-shadow: 0 0 0 90px rgba(255, 255, 255, 0),
-        0 0 0 150px rgba(255, 255, 255, 0), 0 0 0 210px rgba(255, 255, 255, 0);
+      box-shadow:
+        0 0 0 90px rgba(255, 255, 255, 0),
+        0 0 0 150px rgba(255, 255, 255, 0),
+        0 0 0 210px rgba(255, 255, 255, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0), 0 0 0 0 rgba(255, 255, 255, 0),
+      box-shadow:
+        0 0 0 0 rgba(255, 255, 255, 0),
+        0 0 0 0 rgba(255, 255, 255, 0),
         0 0 0 0 rgba(255, 255, 255, 0);
     }
   }
