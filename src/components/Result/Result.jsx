@@ -17,10 +17,10 @@ const Result = ({
   });
 
   useEffect(() => {
-    const totalDuration = 1000;
+    const totalDuration = 2000;
     const initialSpeed = 50;
-    const finalSpeed = 300;
-    const steps = 9; // Number of steps to slow down
+    const finalSpeed = 200;
+    const steps = 20; // Number of steps to slow down
 
     let cycleCount = 0;
     let currentSpeed = initialSpeed;
