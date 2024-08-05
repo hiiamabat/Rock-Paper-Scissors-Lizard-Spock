@@ -25,7 +25,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](https://rtdevcraft.com/rpsls/ss-100.jpg)
+![ss-100](https://github.com/user-attachments/assets/972b30e8-fa1b-4e4d-975e-c583732d7e1a)
+
 
 
 ![Screenshot](https://kaleidoscopic-chimera-972dc8.netlify.app/screenshot-rpsls.jpg)
