@@ -25,6 +25,9 @@ Users should be able to:
 
 ### Screenshot
 
+![Screenshot](https://rtdevcraft.com/rpsls/ss-100.jpg)
+
+
 ![Screenshot](https://kaleidoscopic-chimera-972dc8.netlify.app/screenshot-rpsls.jpg)
 
 ### Links
